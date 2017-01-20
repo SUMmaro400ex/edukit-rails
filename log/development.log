@@ -1165,3 +1165,75 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 65ms (Views: 60.6ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/" for ::1 at 2017-01-19 23:33:39 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (20.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 1236ms (Views: 1208.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2017-01-19 23:33:57 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 275ms (Views: 171.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2017-01-19 23:34:24 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1R4mUlByCIfAW77If6L9Ohi+/fAIRW4uW9y8qPQvsKLoi6P71GYjg9sGu3Rt2dL+lmhbC3IZukB1xLt7C2bpfQ==", "email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 230ms (ActiveRecord: 31.1ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-19 23:34:24 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 54ms (Views: 49.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/scheduler" for ::1 at 2017-01-19 23:34:47 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 27.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/logout" for ::1 at 2017-01-19 23:47:17 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2017-01-19 23:47:17 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 215ms (Views: 185.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2017-01-19 23:47:25 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1xf5etBRZpwTvT50e2d+oehbQbMobi31Nq5L+QTOR3LqgnzTVEVNmAjgO8hpHFFlZo3nSFIy+ZsYtkwq+4cerQ==", "email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 83ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-19 23:47:25 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 87ms (Views: 63.2ms | ActiveRecord: 0.3ms)
+
+
