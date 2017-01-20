@@ -5,6 +5,7 @@ class CreateRights < ActiveRecord::Migration[5.0]
       t.string :short_description
       t.text :long_description
       t.string :title
+      t.boolean :public
 
       t.timestamps
     end

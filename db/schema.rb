@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(version: 20170120013758) do
     t.string   "short_description"
     t.text     "long_description"
     t.string   "title"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.boolean  "public",            default: true
+    t.boolean  "public"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "roles", force: :cascade do |t|
