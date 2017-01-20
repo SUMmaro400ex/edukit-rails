@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170107233639) do
+ActiveRecord::Schema.define(version: 20170120013758) do
 
   create_table "business_entities", force: :cascade do |t|
     t.string   "name"
@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(version: 20170107233639) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "user_profile_cohort_links", force: :cascade do |t|
+    t.integer  "user_profile_id"
+    t.integer  "cohort_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["cohort_id"], name: "index_user_profile_cohort_links_on_cohort_id"
+    t.index ["user_profile_id"], name: "index_user_profile_cohort_links_on_user_profile_id"
+  end
+
   create_table "user_profile_role_links", force: :cascade do |t|
     t.integer  "user_profile_id"
     t.integer  "role_id"
@@ -69,12 +78,10 @@ ActiveRecord::Schema.define(version: 20170107233639) do
 
   create_table "user_profiles", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "cohort_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "business_entity_id"
     t.index ["business_entity_id"], name: "index_user_profiles_on_business_entity_id"
-    t.index ["cohort_id"], name: "index_user_profiles_on_cohort_id"
     t.index ["user_id"], name: "index_user_profiles_on_user_id"
   end
 
