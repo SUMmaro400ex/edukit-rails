@@ -107,6 +107,15 @@ ActiveRecord::Schema.define(version: 20170120022227) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "user_profile_cohort_links", force: :cascade do |t|
+    t.integer  "user_profile_id"
+    t.integer  "cohort_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["cohort_id"], name: "index_user_profile_cohort_links_on_cohort_id", using: :btree
+    t.index ["user_profile_id"], name: "index_user_profile_cohort_links_on_user_profile_id", using: :btree
+  end
+
   create_table "user_profile_role_links", force: :cascade do |t|
     t.integer  "user_profile_id"
     t.integer  "role_id"
@@ -118,12 +127,10 @@ ActiveRecord::Schema.define(version: 20170120022227) do
 
   create_table "user_profiles", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "cohort_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "business_entity_id"
     t.index ["business_entity_id"], name: "index_user_profiles_on_business_entity_id", using: :btree
-    t.index ["cohort_id"], name: "index_user_profiles_on_cohort_id", using: :btree
     t.index ["user_id"], name: "index_user_profiles_on_user_id", using: :btree
   end
 
@@ -139,9 +146,10 @@ ActiveRecord::Schema.define(version: 20170120022227) do
   add_foreign_key "cohorts", "business_entities"
   add_foreign_key "right_role_links", "rights"
   add_foreign_key "right_role_links", "roles"
+  add_foreign_key "user_profile_cohort_links", "cohorts"
+  add_foreign_key "user_profile_cohort_links", "user_profiles"
   add_foreign_key "user_profile_role_links", "roles"
   add_foreign_key "user_profile_role_links", "user_profiles"
   add_foreign_key "user_profiles", "business_entities"
-  add_foreign_key "user_profiles", "cohorts"
   add_foreign_key "user_profiles", "users"
 end

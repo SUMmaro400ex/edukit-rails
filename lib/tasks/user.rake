@@ -1,6 +1,7 @@
-namespace :user_profile do
-  desc "Add site admin role to user profile"
-  task :add_site_admin_role, :id do |t, args|
-    UserProfileRoleLink.create!(user_profile_id: args.id, role_id: Role.find_by_code("SA").id)
+namespace :user do
+  desc 'Create System Admin User'
+  task create_system_admin_user: :environment do
+    user = User.new(first_name: 'System', last_name: 'Admin', email: 'edukit@edukit.com', password: 'password', password_confirmation: 'password')
+    user.save!
   end
 end
