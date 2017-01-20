@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to '/login' unless current_user
   end
+
+  def authorized?
+    !!session[:user_id] ? true : raise "Not Authorized!"
+  end
 end
