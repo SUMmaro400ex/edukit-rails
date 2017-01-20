@@ -10,12 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170107233639) do
+ActiveRecord::Schema.define(version: 20170120022227) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "business_entities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "calendar_event_resource_links", force: :cascade do |t|
+    t.integer  "calender_event_id"
+    t.integer  "resouce_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "calendar_events", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "business_entity_id"
+    t.integer  "cohort_id"
+    t.integer  "event_type_id"
+    t.string   "status"
+    t.date     "updated_by"
+    t.string   "created_by"
+    t.datetime "updated_at"
   end
 
   create_table "cohorts", force: :cascade do |t|
@@ -28,7 +50,34 @@ ActiveRecord::Schema.define(version: 20170107233639) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "business_entity_id"
-    t.index ["business_entity_id"], name: "index_cohorts_on_business_entity_id"
+    t.index ["business_entity_id"], name: "index_cohorts_on_business_entity_id", using: :btree
+  end
+
+  create_table "recurrences", force: :cascade do |t|
+    t.string   "frequency_code"
+    t.integer  "bin_day"
+    t.integer  "interval"
+    t.string   "day_position"
+    t.integer  "month_day"
+    t.integer  "year_month"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "updated_at"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "status"
+    t.integer  "business_entity_id"
+    t.integer  "resource_id"
+    t.datetime "updated_at"
+    t.integer  "created_by"
+    t.integer  "updated_by"
   end
 
   create_table "right_role_links", force: :cascade do |t|
@@ -36,8 +85,8 @@ ActiveRecord::Schema.define(version: 20170107233639) do
     t.integer  "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["right_id"], name: "index_right_role_links_on_right_id"
-    t.index ["role_id"], name: "index_right_role_links_on_role_id"
+    t.index ["right_id"], name: "index_right_role_links_on_right_id", using: :btree
+    t.index ["role_id"], name: "index_right_role_links_on_role_id", using: :btree
   end
 
   create_table "rights", force: :cascade do |t|
@@ -63,8 +112,8 @@ ActiveRecord::Schema.define(version: 20170107233639) do
     t.integer  "role_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["role_id"], name: "index_user_profile_role_links_on_role_id"
-    t.index ["user_profile_id"], name: "index_user_profile_role_links_on_user_profile_id"
+    t.index ["role_id"], name: "index_user_profile_role_links_on_role_id", using: :btree
+    t.index ["user_profile_id"], name: "index_user_profile_role_links_on_user_profile_id", using: :btree
   end
 
   create_table "user_profiles", force: :cascade do |t|
@@ -73,9 +122,9 @@ ActiveRecord::Schema.define(version: 20170107233639) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "business_entity_id"
-    t.index ["business_entity_id"], name: "index_user_profiles_on_business_entity_id"
-    t.index ["cohort_id"], name: "index_user_profiles_on_cohort_id"
-    t.index ["user_id"], name: "index_user_profiles_on_user_id"
+    t.index ["business_entity_id"], name: "index_user_profiles_on_business_entity_id", using: :btree
+    t.index ["cohort_id"], name: "index_user_profiles_on_cohort_id", using: :btree
+    t.index ["user_id"], name: "index_user_profiles_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,4 +136,12 @@ ActiveRecord::Schema.define(version: 20170107233639) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "cohorts", "business_entities"
+  add_foreign_key "right_role_links", "rights"
+  add_foreign_key "right_role_links", "roles"
+  add_foreign_key "user_profile_role_links", "roles"
+  add_foreign_key "user_profile_role_links", "user_profiles"
+  add_foreign_key "user_profiles", "business_entities"
+  add_foreign_key "user_profiles", "cohorts"
+  add_foreign_key "user_profiles", "users"
 end
