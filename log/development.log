@@ -1,332 +1,181 @@
-  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
-  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUsers (20161210180127)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161210180127"]]
-  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
-Migrating to CreateCohorts (20161210203944)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "cohorts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location" varchar, "start_date" date, "end_date" date, "max_capacity" integer, "number" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161210203944"]]
-  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
-Migrating to CreateUserProfiles (20161210210954)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "user_profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "cohort_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mselect sqlite_version(*)[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_user_profiles_on_user_id" ON "user_profiles" ("user_id")[0m
-  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='index_user_profiles_on_user_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='index_user_profiles_on_user_id' AND type='index'
-[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_user_profiles_on_cohort_id" ON "user_profiles" ("cohort_id")[0m
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161210210954"]]
-  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
-Migrating to CreateRoles (20161210212645)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "code" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161210212645"]]
-  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
-Migrating to CreateUserProfileRoleLinks (20161222180545)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "user_profile_role_links" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_profile_id" integer, "role_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_user_profile_role_links_on_user_profile_id" ON "user_profile_role_links" ("user_profile_id")[0m
-  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='index_user_profile_role_links_on_user_profile_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='index_user_profile_role_links_on_user_profile_id' AND type='index'
-[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_user_profile_role_links_on_role_id" ON "user_profile_role_links" ("role_id")[0m
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161222180545"]]
-  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
-Migrating to CreateRights (20161222181752)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "rights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "short_description" varchar, "long_description" text, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
-  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161222181752"]]
-  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
-Migrating to CreateRightRoleLinks (20161222182008)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "right_role_links" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "right_id" integer, "role_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_right_role_links_on_right_id" ON "right_role_links" ("right_id")[0m
-  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='index_right_role_links_on_right_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='index_right_role_links_on_right_id' AND type='index'
-[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_right_role_links_on_role_id" ON "right_role_links" ("role_id")[0m
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161222182008"]]
-  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
-Migrating to AddUserFullControlRight (20161222182927)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "rights" ("code", "short_description", "long_description", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["code", "UFC"], ["short_description", "User CRUD actions"], ["long_description", "Able to create, read, update, and destroy users"], ["title", "Users Full Control"], ["created_at", 2017-01-07 23:39:21 UTC], ["updated_at", 2017-01-07 23:39:21 UTC]]
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161222182927"]]
-  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
-Migrating to AddCourseFullControlRight (20161222183410)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "rights" ("code", "short_description", "long_description", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["code", "CFC"], ["short_description", "Course CRUD actions"], ["long_description", "Able to create, read, update, and destroy courses"], ["title", "Courses Full Control"], ["created_at", 2017-01-07 23:39:21 UTC], ["updated_at", 2017-01-07 23:39:21 UTC]]
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161222183410"]]
-  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
-Migrating to AddPublicToRights (20161222183636)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "rights" ADD "public" boolean DEFAULT 't'[0m
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161222183636"]]
-  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
-Migrating to CreateBusinessEntities (20161222183942)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "business_entities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161222183942"]]
-  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
-Migrating to AddBusinessEntityToUserProfiles (20161222192154)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "user_profiles" ADD "business_entity_id" integer[0m
-  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='index_user_profiles_on_cohort_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='index_user_profiles_on_cohort_id' AND type='index'
-[0m
-  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='index_user_profiles_on_user_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='index_user_profiles_on_user_id' AND type='index'
-[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_user_profiles_on_business_entity_id" ON "user_profiles" ("business_entity_id")[0m
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161222192154"]]
-  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
-Migrating to AddBusinessEntitySettingFullControlRight (20161222192704)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "rights" ("code", "short_description", "long_description", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["code", "BESFC"], ["short_description", "Business Entity Settings CRUD actions"], ["long_description", "Able to create, read, update, and destroy Business Entity Settings"], ["title", "Business Entity Settings Full Control"], ["created_at", 2017-01-07 23:39:21 UTC], ["updated_at", 2017-01-07 23:39:21 UTC]]
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161222192704"]]
-  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
-Migrating to AddBusinessEntityFullControlRight (20161222192751)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "rights" ("code", "short_description", "long_description", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["code", "BEFC"], ["short_description", "Business Entities CRUD actions"], ["long_description", "Able to create, read, update, and destroy Business Entities"], ["title", "Business Entities Full Control"], ["created_at", 2017-01-07 23:39:21 UTC], ["updated_at", 2017-01-07 23:39:21 UTC]]
-  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161222192751"]]
-  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
-Migrating to AddSiteAdminFullControlRight (20161222192818)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to AddSiteAdminFullControlRight (20161222192818)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "rights" ("code", "short_description", "long_description", "title", "created_at", "updated_at", "public") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["code", "SAFC"], ["short_description", "Site Admin actions"], ["long_description", "Able to utilize site administration controls"], ["title", "Site Admin Full Control"], ["created_at", 2017-01-07 23:41:13 UTC], ["updated_at", 2017-01-07 23:41:13 UTC], ["public", false]]
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161222192818"]]
-  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
-Migrating to AddSiteAdminRole (20161222193539)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("name", "description", "code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Site Admin"], ["description", "Site Administrator"], ["code", "SA"], ["created_at", 2017-01-07 23:41:13 UTC], ["updated_at", 2017-01-07 23:41:13 UTC]]
-  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161222193539"]]
-  [1m[35m (9.2ms)[0m  [1m[36mcommit transaction[0m
-Migrating to AddCohortToBusinessEntities (20161222201537)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "business_entities" ADD "cohort_id" integer[0m
-  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_business_entities_on_cohort_id" ON "business_entities" ("cohort_id")[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161222201537"]]
-  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
-Migrating to AddSiteAdminRoleRightLink (20161223153816)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."code" = ? LIMIT ?[0m  [["code", "SA"], ["LIMIT", 1]]
-  [1m[36mRight Load (0.1ms)[0m  [1m[34mSELECT  "rights".* FROM "rights" WHERE "rights"."code" = ? LIMIT ?[0m  [["code", "SAFC"], ["LIMIT", 1]]
-  [1m[36mRight Load (0.1ms)[0m  [1m[34mSELECT  "rights".* FROM "rights" WHERE "rights"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
-  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "right_role_links" ("right_id", "role_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["right_id", 5], ["role_id", 1], ["created_at", 2017-01-07 23:41:13 UTC], ["updated_at", 2017-01-07 23:41:13 UTC]]
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161223153816"]]
-  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
-Migrating to RemoveCohortFromBusinessEntities (20161224165941)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abusiness_entities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "cohort_id" integer)[0m
-  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='index_business_entities_on_cohort_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='index_business_entities_on_cohort_id' AND type='index'
-[0m
-  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "tindex_abusiness_entities_on_cohort_id" ON "abusiness_entities" ("cohort_id")[0m
-  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "abusiness_entities" ("id","name","created_at","updated_at","cohort_id")
-                     SELECT "id","name","created_at","updated_at","cohort_id" FROM "business_entities"[0m
-  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "business_entities"[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "business_entities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
-  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='tindex_abusiness_entities_on_cohort_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='tindex_abusiness_entities_on_cohort_id' AND type='index'
-[0m
-  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "business_entities" ("id","name","created_at","updated_at")
-                     SELECT "id","name","created_at","updated_at" FROM "abusiness_entities"[0m
-  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "abusiness_entities"[0m
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161224165941"]]
-  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
-Migrating to AddBusinessEntityToCohorts (20161224170146)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "cohorts" ADD "business_entity_id" integer[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_cohorts_on_business_entity_id" ON "cohorts" ("business_entity_id")[0m
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161224170146"]]
-  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
-Migrating to AddTaRole (20170107233639)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("name", "description", "code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Teaching Assistant"], ["description", "Teaching Assistant"], ["code", "TA"], ["created_at", 2017-01-07 23:41:13 UTC], ["updated_at", 2017-01-07 23:41:13 UTC]]
-  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170107233639"]]
-  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-01-07 23:41:13 UTC], ["updated_at", 2017-01-07 23:41:13 UTC]]
-  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='index_cohorts_on_business_entity_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='index_cohorts_on_business_entity_id' AND type='index'
-[0m
-  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='index_right_role_links_on_role_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='index_right_role_links_on_role_id' AND type='index'
-[0m
-  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='index_right_role_links_on_right_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='index_right_role_links_on_right_id' AND type='index'
-[0m
-  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='index_user_profile_role_links_on_role_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='index_user_profile_role_links_on_role_id' AND type='index'
-[0m
-  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='index_user_profile_role_links_on_user_profile_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='index_user_profile_role_links_on_user_profile_id' AND type='index'
-[0m
-  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='index_user_profiles_on_business_entity_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='index_user_profiles_on_business_entity_id' AND type='index'
-[0m
-  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='index_user_profiles_on_cohort_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='index_user_profiles_on_cohort_id' AND type='index'
-[0m
-  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
-            FROM sqlite_master
-            WHERE name='index_user_profiles_on_user_id' AND type='index'
-            UNION ALL
-            SELECT sql
-            FROM sqlite_temp_master
-            WHERE name='index_user_profiles_on_user_id' AND type='index'
-[0m
-Started GET "/" for ::1 at 2017-01-07 18:42:24 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveCohortFromUserProfiles (20170120013530)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "user_profiles" DROP "cohort_id"[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170120013530"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserProfileCohortLinks (20170120013758)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "user_profile_cohort_links" ("id" serial primary key, "user_profile_id" integer, "cohort_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e0a976a12e"
+FOREIGN KEY ("user_profile_id")
+  REFERENCES "user_profiles" ("id")
+, CONSTRAINT "fk_rails_dbd520c93b"
+FOREIGN KEY ("cohort_id")
+  REFERENCES "cohorts" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_user_profile_cohort_links_on_user_profile_id" ON "user_profile_cohort_links"  ("user_profile_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_user_profile_cohort_links_on_cohort_id" ON "user_profile_cohort_links"  ("cohort_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170120013758"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Processing by WelcomeController#index as HTML
-  Rendering welcome/index.html.erb within layouts/application
-  Rendered welcome/index.html.erb within layouts/application (1.4ms)
-Completed 200 OK in 1031ms (Views: 1021.2ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/login" for ::1 at 2017-01-07 18:42:48 -0500
-Processing by SessionsController#new as HTML
-  Rendering sessions/new.html.erb within layouts/application
-  Rendered sessions/new.html.erb within layouts/application (3.0ms)
-Completed 200 OK in 36ms (Views: 32.9ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/signup" for ::1 at 2017-01-07 18:42:49 -0500
-Processing by UsersController#new as HTML
-  Rendering users/new.html.erb within layouts/application
-  Rendered users/new.html.erb within layouts/application (8.5ms)
-Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/login" for ::1 at 2017-01-07 18:42:51 -0500
-Processing by SessionsController#new as HTML
-  Rendering sessions/new.html.erb within layouts/application
-  Rendered sessions/new.html.erb within layouts/application (2.2ms)
-Completed 200 OK in 45ms (Views: 42.6ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/" for ::1 at 2017-01-07 18:43:15 -0500
-Processing by WelcomeController#index as HTML
-  Rendering welcome/index.html.erb within layouts/application
-  Rendered welcome/index.html.erb within layouts/application (0.3ms)
-Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/" for ::1 at 2017-01-07 20:11:05 -0500
-Processing by WelcomeController#index as HTML
-  Rendering welcome/index.html.erb within layouts/application
-  Rendered welcome/index.html.erb within layouts/application (0.3ms)
-Completed 200 OK in 62ms (Views: 60.8ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/signup" for ::1 at 2017-01-07 20:11:07 -0500
-Processing by UsersController#new as HTML
-  Rendering users/new.html.erb within layouts/application
-  Rendered users/new.html.erb within layouts/application (1.9ms)
-Completed 200 OK in 37ms (Views: 33.8ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/login" for ::1 at 2017-01-07 20:11:08 -0500
-Processing by SessionsController#new as HTML
-  Rendering sessions/new.html.erb within layouts/application
-  Rendered sessions/new.html.erb within layouts/application (2.1ms)
-Completed 200 OK in 38ms (Views: 34.5ms | ActiveRecord: 0.0ms)
-
-
-Started POST "/login" for ::1 at 2017-01-07 20:11:11 -0500
-Processing by SessionsController#create as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6oWbLNN582xB/KiINsVmDZzH4m0O2gbHE5ZOy6QCohBtrSVaQeTXkhbdu5yKgfpQ4YtBaiyNuxssm4oenRN8Bg==", "email"=>"Albertog2man@gmail.com", "password"=>"[FILTERED]", "commit"=>"Submit"}
-  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "Albertog2man@gmail.com"], ["LIMIT", 1]]
-Redirected to http://localhost:3000/login
-Completed 302 Found in 23ms (ActiveRecord: 1.7ms)
-
-
-Started GET "/login" for ::1 at 2017-01-07 20:11:11 -0500
-Processing by SessionsController#new as HTML
-  Rendering sessions/new.html.erb within layouts/application
-  Rendered sessions/new.html.erb within layouts/application (0.8ms)
-Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.0ms)
-
-
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'business_entities'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'calendar_event_resource_links'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'calendar_events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'cohorts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'recurrences'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'resources'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'right_role_links'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'rights'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'roles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'user_profile_cohort_links'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'user_profile_role_links'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'user_profiles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
