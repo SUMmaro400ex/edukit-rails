@@ -1,1 +1,4 @@
 <h1>List of user profiles</h1>
+<% @user_profiles.each do |user_profile| %>
+  <%= link_to "#{user_profile.business_entity.name}", user_user_profile_business_entity_path(@user.id, user_profile.id, user_profile.business_entity_id) %>
+<% end %>

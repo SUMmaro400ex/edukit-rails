@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
+  before_action :set_user_profiles, only: [:show]
 
   def new
   end
@@ -15,7 +16,9 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    if @user.user_profiles.length == 1
+      redirect_to user_user_profile_path(@user.id, @user.user_profiles.first.id)
+    end
   end
 
 private
@@ -28,4 +31,7 @@ private
     @user = User.find(params[:id])
   end
 
+  def set_user_profiles
+    @user_profiles = @user.user_profiles
+  end
 end
