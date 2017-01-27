@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  get '/signup' => 'users#new'
-  post '/users' => 'users#create'
+  resources :users do
+    resources :user_profiles do
+      resources :business_entities
+    end
+  end
 
   get '/scheduler' => 'events#index'
 
