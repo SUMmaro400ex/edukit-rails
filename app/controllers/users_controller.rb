@@ -16,9 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if @user.user_profiles.length == 1
-      redirect_to user_user_profile_path(@user.id, @user.user_profiles.first.id)
-    end
+    redirect_to user_user_profile_path(@user.id, @user.user_profiles.first.id) if @user.has_one_profile?
   end
 
 private

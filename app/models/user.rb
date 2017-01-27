@@ -5,5 +5,9 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def has_one_profile?
+    user_profiles.length == 1
+  end
   
 end

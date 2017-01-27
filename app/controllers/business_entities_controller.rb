@@ -1,7 +1,8 @@
 class BusinessEntitiesController < ApplicationController
   before_action :set_business_entity, only: [:show]
-  def show
 
+  def show
+    @user = User.new
   end
 
   private

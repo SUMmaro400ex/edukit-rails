@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170120022227) do
+ActiveRecord::Schema.define(version: 20170127035652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20170120022227) do
   end
 
   create_table "recurrences", force: :cascade do |t|
+    t.integer  "business_entity_id"
     t.string   "frequency_code"
     t.integer  "bin_day"
     t.integer  "interval"
