@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized?
-    !!session[:user_id] ? true : raise "Not Authorized!"
+    !!session[:user_id]
   end
 end
