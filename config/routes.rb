@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   resources :users do
-    resources :user_profiles do
-      resources :business_entities
-    end
+    resources :user_profiles
+  end
+
+  resources :user_profiles do
+    resources :business_entities
   end
 
   get '/scheduler' => 'events#index'
 
-  resources :users
 end
