@@ -1,6 +1,6 @@
 <h1>Manage <%= @user_profile.business_entity.name %></h1>
-<%= link_to @user_profile.business_entity.name, user_user_profile_business_entity_path(@user_profile.user_id, @user_profile.id, @user_profile.business_entity_id) %>
+<%= link_to @user_profile.business_entity.name, user_profile_business_entity_path(@user_profile.id, @user_profile.business_entity_id) %>
 
 
 <h1>Scheduler</h1>
-<%= link_to "Scheduler", scheduler_path %>
+<%= link_to 'Scheduler', scheduler_path %>
