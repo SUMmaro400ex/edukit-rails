@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170127035652) do
+ActiveRecord::Schema.define(version: 20170207031913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,24 @@ ActiveRecord::Schema.define(version: 20170127035652) do
     t.datetime "updated_at",         null: false
     t.integer  "business_entity_id"
     t.index ["business_entity_id"], name: "index_cohorts_on_business_entity_id", using: :btree
+  end
+
+  create_table "contract_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "code"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "contracts", force: :cascade do |t|
+    t.integer  "user_profile_id"
+    t.integer  "contract_type_id"
+    t.integer  "rate"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["contract_type_id"], name: "index_contracts_on_contract_type_id", using: :btree
+    t.index ["user_profile_id"], name: "index_contracts_on_user_profile_id", using: :btree
   end
 
   create_table "recurrences", force: :cascade do |t|
@@ -145,6 +163,8 @@ ActiveRecord::Schema.define(version: 20170127035652) do
   end
 
   add_foreign_key "cohorts", "business_entities"
+  add_foreign_key "contracts", "contract_types"
+  add_foreign_key "contracts", "user_profiles"
   add_foreign_key "right_role_links", "rights"
   add_foreign_key "right_role_links", "roles"
   add_foreign_key "user_profile_cohort_links", "cohorts"

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_profile: one
+  contract_type: one
+  rate: 1
+
+two:
+  user_profile: two
+  contract_type: two
+  rate: 1
