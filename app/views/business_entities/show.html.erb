@@ -1,7 +1,8 @@
-<h1>Manage Studenets</h1>
-<h2>New User</h2>
+<h1>Manage Students</h1>
+<h2>User Actions</h2>
+<h3>New User</h3>
 <%= form_for(@user)  do |f| %>
-  <%= collection_select(:role, :code, @roles, :code, :name)%>
+  <%= collection_select(:role, :code, @new_user_roles, :code, :name)%>
   First Name: <%= f.text_field :first_name %>
   Last Name: <%= f.text_field :last_name %>
   Email: <%= f.text_field :email %>
@@ -10,5 +11,16 @@
   Hourly Rate: <%= text_field_tag :rate %>
   <%= hidden_field_tag(:user_profile_id, @user_profile.id) %>
   <%= f.submit 'Submit' %>
+<% end %>
 
+<h2>Cohort Actions</h2>
+<h3>New Cohort</h3>
+<%= form_for(@cohort)  do |f| %>
+    Cohort Name: <%= f.text_field :name %>
+    Cohort Number: <%= f.number_field :number %>
+    Start Date: <%= f.date_field :start_date %>
+    End Date: <%= f.date_field :end_date %>
+    Maximum Capacity: <%= f.number_field :max_capacity %>
+    <%= hidden_field_tag(:user_profile_id, @user_profile.id) %>
+    <%= f.submit 'Submit' %>
 <% end %>

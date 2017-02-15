@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :business_entities
   end
 
+  resources :cohorts
+
   get '/scheduler' => 'events#index'
 
 end

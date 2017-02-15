@@ -1,16 +1,22 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
+
+  before_action :require_login!
+
+  def require_login!
+    return true if authenticate_token
+    render json: { errors: [ { detail: 'Access denied' } ] }, status: 401
+  end
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-  helper_method :current_user
-
-  def authorize
-    redirect_to '/login' unless current_user
+    @current_user ||= authenticate_token
   end
 
-  def authorized?
-    !!session[:user_id]
+  private
+  def authenticate_token
+    authenticate_with_http_token do |token, options|
+      User.find_by(auth_token: token)
+    end
   end
+
 end
