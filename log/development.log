@@ -419,3 +419,473 @@ Completed 200 OK in 87ms (Views: 63.2ms | ActiveRecord: 0.3ms)
 
 =======
 >>>>>>> 7bcb42926db693a6e86056d90abc6b7fb69a5541
+Started OPTIONS "/login" for ::1 at 2017-02-15 17:46:47 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/login"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered collection of /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [45 times] (48.5ms)
+  Rendered /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (15.0ms)
+  Rendering /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (16.0ms)
+  Rendered /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (262.8ms)
+Started OPTIONS "/login.json" for ::1 at 2017-02-15 17:47:42 -0500
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/login.json"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered collection of /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [45 times] (28.9ms)
+  Rendered /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendering /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.7ms)
+  Rendered /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (365.6ms)
+Started POST "/login.json" for ::1 at 2017-02-15 17:50:53 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "lastName"=>"password", "session"=>{"email"=>"edukit@edukit.com", "lastName"=>"password"}}
+Completed 500 Internal Server Error in 51603ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/sessions_controller.rb:11:in `create'
+  Rendering /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.5ms)
+  Rendering /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/Jon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (132.0ms)
+Started POST "/login.json" for ::1 at 2017-02-15 17:52:03 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "lastName"=>"password", "session"=>{"email"=>"edukit@edukit.com", "lastName"=>"password"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 171ms (Views: 2.5ms | ActiveRecord: 16.5ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 17:52:21 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.co", "lastName"=>"password", "session"=>{"email"=>"edukit@edukit.co", "lastName"=>"password"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.co"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 4ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 17:52:55 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.co", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.co", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.co"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 27ms (Views: 0.3ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 17:53:31 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.co", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.co", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.co"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 19287ms (Views: 0.5ms | ActiveRecord: 4.5ms)
+
+
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/login.json" for ::1 at 2017-02-15 17:55:20 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (8.1ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '18a870e210e95402ef1300acab29ff9f' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 4335ms (Views: 0.4ms | ActiveRecord: 37.2ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:03:49 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '34fc442a5214c4e837240781b0846c2b' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 10723ms (Views: 3.2ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:04:35 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = 'df19a94b20d4562d45c1a479701a7898' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 186ms (Views: 0.6ms | ActiveRecord: 11.4ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:05:32 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '2c539f6c1acbe27a10338d810147e6e3' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 158ms (Views: 2.4ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:07:04 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (3.8ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = 'e60237b5cf9b84bedd6d05129792b782' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 305ms (Views: 2.6ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:07:23 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '81125b17cae06b6f7c5e75bab48f952c' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 215ms (Views: 0.4ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:07:46 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = 'b2caafe57ea1b229c14a8c9cd16c036f' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 247ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:08:06 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"test", "password"=>"[FILTERED]", "session"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 4ms (Views: 0.6ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:08:14 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = 'fecf4d59fdd6584c726bee85c5d4e799' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 169ms (Views: 0.7ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:15:59 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 6ms (Views: 0.6ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:18:40 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (3.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '06ceab58fd9f3dfbcc70555dfccca9bd' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 115ms (Views: 0.4ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:21:40 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 4ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:22:47 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 5ms (Views: 2.2ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:24:19 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 4ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:28:54 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:35:09 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (3.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '15ded5add4008515eeb0a53f91f8daf5' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 102ms (Views: 0.5ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:35:54 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '1c582e0761d05e089ece97f4fd07e7eb' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 104ms (Views: 0.3ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:39:09 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.8ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '72c9ff4b8bd62b6018cb24bdde1aea26' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 112ms (Views: 0.7ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:39:39 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = 'e7b39da486e6119976115da5191c3aac' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 106ms (Views: 0.2ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:46:30 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.8ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '4665f8adb6b70925eb19367f08a42f63' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 105ms (Views: 0.4ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:47:04 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.5ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '3b9eab9ae6e3fc0888ef06e4ed153fc0' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 116ms (Views: 0.3ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:49:08 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = 'dbca4d1fbe16763e07bbfa1e99cab0fe' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 109ms (Views: 0.5ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:56:46 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '4b2b9f4de36df6216c7a2af96f61dcb5' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 101ms (Views: 0.3ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 18:56:53 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.5ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '41ee6726914b30488ed326672d6c6556' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 109ms (Views: 0.3ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 19:00:05 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = 'b813fc70f16c6de0a87a32b70620a129' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 101ms (Views: 0.6ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 19:04:34 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = 'caee785c36cacc59aefccf29e1267e00' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 97ms (Views: 1.2ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 19:04:35 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.5ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '8e51d4d64a5eab31e18fcbbda6572ca9' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 108ms (Views: 0.3ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 19:04:36 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = 'c62921e46995e67ff63fd8f02e0550d8' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 102ms (Views: 0.5ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 19:04:43 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '1200dac9e37ec31b8e3a4a09278596fe' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 107ms (Views: 0.7ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 21:00:18 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (4.4ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = 'e9b79a6de7d182558c73eaec702a0762' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 125ms (Views: 3.5ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 21:03:51 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = 'b906f8891eec511aa1d7cb25d5ebc7b4' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 100ms (Views: 0.4ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 21:04:01 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '38f639ac8812baf1febd8f6f28b51c40' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 102ms (Views: 0.4ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 21:29:34 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 18ms (Views: 2.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 21:31:14 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (Views: 0.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 21:38:22 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 21:44:26 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"password", "password"=>"[FILTERED]", "session"=>{"email"=>"password", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "password"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 22:16:23 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (4.4ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = 'f93b54c4688e55c2b6f46a37fa1062a2' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 123ms (Views: 3.4ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 22:19:13 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '9407cca64d6a59de5f02604124362e6c' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 97ms (Views: 0.4ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 22:20:37 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (3.6ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '4cbce05fec5d3ca26d544a17bdcdaf89' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 101ms (Views: 0.4ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 22:21:35 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '066c62acb6f84db190f975767910c72d' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 100ms (Views: 0.3ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 22:26:16 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit.edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit.edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit.edukit.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 22:27:27 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (3.0ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '117e5664e54d10ad68709cdaa79f50a4' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 98ms (Views: 0.3ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 22:28:55 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '3548c3690b8d1cf0bdefd027d50a9cad' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 106ms (Views: 1.1ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/login.json" for ::1 at 2017-02-15 22:29:56 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"edukit@edukit.com", "password"=>"[FILTERED]", "session"=>{"email"=>"edukit@edukit.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edukit@edukit.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = '8587ddbee3a456ace1bf72dedca2aa69' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 101ms (Views: 0.3ms | ActiveRecord: 1.5ms)
+
+
