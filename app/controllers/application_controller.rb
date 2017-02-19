@@ -14,9 +14,8 @@ class ApplicationController < ActionController::Base
 
   private
   def authenticate_token
-    authenticate_with_http_token do |token, options|
-      User.find_by(auth_token: token)
-    end
+    return false unless token = request.headers['Authorization']
+    User.find_by_auth_token(token)
   end
 
 end

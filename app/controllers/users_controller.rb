@@ -3,9 +3,6 @@ class UsersController < ApplicationController
   before_action :set_user_profiles, only: [:show]
   before_action :set_user_profile, only: [:create]
 
-  def new
-  end
-
   def create
     #TODO: Move this out of the controller and into the User model
     user = User.new(user_params)

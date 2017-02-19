@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
-      render json: { auth_token: user.generate_auth_token }
+      render json: { auth_token: user.generate_auth_token, user: user, user_profiles: user.user_profiles}
     else
       invalid_login_attempt
     end
