@@ -1,4 +1,6 @@
 class CalendarEvent < ApplicationRecord
+  include RecurringCore
+
   belongs_to :business_entity
   belongs_to :cohort
   belongs_to :event_type
