@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214020940) do
+ActiveRecord::Schema.define(version: 20170427034005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20170214020940) do
     t.date     "updated_by"
     t.string   "created_by"
     t.datetime "updated_at"
+    t.integer  "recurrences_id"
+    t.index ["recurrences_id"], name: "index_calendar_events_on_recurrences_id", using: :btree
   end
 
   create_table "cohorts", force: :cascade do |t|
@@ -164,6 +166,7 @@ ActiveRecord::Schema.define(version: 20170214020940) do
     t.index ["auth_token"], name: "index_users_on_auth_token", using: :btree
   end
 
+  add_foreign_key "calendar_events", "recurrences", column: "recurrences_id"
   add_foreign_key "cohorts", "business_entities"
   add_foreign_key "contracts", "contract_types"
   add_foreign_key "contracts", "user_profiles"

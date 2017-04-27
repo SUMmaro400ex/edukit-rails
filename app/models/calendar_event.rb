@@ -1,4 +1,6 @@
 class CalendarEvent < ApplicationRecord
+  include RecurrenceCore
+
   belongs_to :business_entity
   belongs_to :cohort
   belongs_to :event_type
@@ -6,5 +8,7 @@ class CalendarEvent < ApplicationRecord
 
   validates :business_entity, :presence => true
   validates :event_type, :presence => true
+
+  enum status: {active: 0, inactive: 1}
 
 end
