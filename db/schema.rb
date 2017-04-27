@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 20170427034005) do
 
   create_table "recurrences", force: :cascade do |t|
     t.integer  "business_entity_id"
-    t.string   "frequency_code"
-    t.integer  "bin_day"
+    t.string   "repeat_pattern"
+    t.integer  "week_day_mask"
     t.integer  "interval"
     t.string   "day_position"
     t.integer  "month_day"
