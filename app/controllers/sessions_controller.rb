@@ -8,11 +8,21 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
-      render json: { auth_token: user.generate_auth_token, user: user, user_profiles: user.user_profiles}
+      render json: { auth_token: user.generate_auth_token, user: user, user_profiles: user.user_profiles}, status: 200
     else
       invalid_login_attempt
     end
 
+  end
+
+  def front_load_session_data
+    response = {}
+    user_profile = UserProfile.find params[:user_profile_id]
+    response[:business_entity] = user_profile.business_entity
+    response[:roles] = Role.all
+    response[:rights] = Right.all
+    response[:right_role_links] = RightRoleLink.all
+    render json: response, status: 200
   end
 
   def destroy

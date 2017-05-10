@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427034005) do
+ActiveRecord::Schema.define(version: 20170427044033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,11 +34,11 @@ ActiveRecord::Schema.define(version: 20170427034005) do
     t.integer  "business_entity_id"
     t.integer  "cohort_id"
     t.integer  "event_type_id"
-    t.string   "status"
     t.date     "updated_by"
     t.string   "created_by"
     t.datetime "updated_at"
     t.integer  "recurrences_id"
+    t.integer  "status",             default: 0
     t.index ["recurrences_id"], name: "index_calendar_events_on_recurrences_id", using: :btree
   end
 
