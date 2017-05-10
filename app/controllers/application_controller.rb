@@ -12,9 +12,13 @@ class ApplicationController < ActionController::Base
     @current_user ||= authenticate_token
   end
 
+  def args
+    params["body"]
+  end
+
   private
   def authenticate_token
-    return false unless token = request.headers['Authorization']
+    return false unless token = (request.headers["Authorization"] || params["headers"]["Authorization"])
     User.find_by_auth_token(token)
   end
 

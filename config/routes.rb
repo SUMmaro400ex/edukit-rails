@@ -18,5 +18,4 @@ Rails.application.routes.draw do
 
   get '/scheduler' => 'events#index'
 
-
 end
