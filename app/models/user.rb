@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :user_profiles
+  has_many :user_profiles, dependent: :destroy
   has_secure_password
 
   def self.build_from_args(args)
