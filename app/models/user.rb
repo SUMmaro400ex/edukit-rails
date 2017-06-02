@@ -20,6 +20,10 @@ class User < ApplicationRecord
     end
   end
 
+  def to_vo
+    attributes.except('password_digest', 'auth_token').merge('user_profiles' =>user_profiles.map(&:with_roles))
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end

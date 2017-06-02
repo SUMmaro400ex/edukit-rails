@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   get '/scheduler' => 'events#index'
 
+  post '/business_entities/:id/staff' => 'business_entities#staff'
+
 end

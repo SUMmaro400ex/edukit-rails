@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
     response = {}
     user_profile = UserProfile.find params[:user_profile_id]
     response[:business_entity] = user_profile.business_entity
+    response[:user_profile_id] = params[:user_profile_id]
     response[:roles] = Role.all
     response[:rights] = Right.all
     response[:right_role_links] = RightRoleLink.all
