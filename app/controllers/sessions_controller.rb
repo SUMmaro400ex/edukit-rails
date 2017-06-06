@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login!, only: [:create]
+  skip_before_action :require_login!, only: [:create, :destroy]
 
   def new
 
@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    current_user.invalidate_auth_token
+    current_user.invalidate_auth_token if current_user
     head :ok
   end
 
