@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   def create
-    User.build_from_args(args)
-    render json: true, status: 200
+    user = User.build_from_args(args)
+    render json: user.to_vo, status: 200
   end
 
 private

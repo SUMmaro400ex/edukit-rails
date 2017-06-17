@@ -18,6 +18,7 @@ class User < ApplicationRecord
         Contract.create(contract_type_id: ContractType.find_by_code('CR').id, user_profile_id: user_profile.id, rate: staff_args['hourly'].gsub('.', '').to_i)
       end
     end
+    user
   end
 
   def to_vo
@@ -41,5 +42,5 @@ class User < ApplicationRecord
   def invalidate_auth_token
     self.update_columns(auth_token: nil)
   end
-  
+
 end
